@@ -2,9 +2,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import NextLink from "next/link"
-import { VStack, Heading, Box, LinkOverlay, LinkBox} from "@chakra-ui/layout"
+import { VStack, Heading, Box, LinkOverlay, LinkBox } from "@chakra-ui/layout"
 import { Text, Button } from '@chakra-ui/react'
 import ConnectMetamask from 'components/ConnectMetamask'
+import ETHBalance from 'components/ETHbalance'
+import ETHBalanceSWR from 'components/ETHBalanceSWR'
 
 const Home: NextPage = () => {
   return (
@@ -13,28 +15,39 @@ const Home: NextPage = () => {
         <title>My DAPP</title>
       </Head>
 
-      <Heading as="h3"  my={4}>Explore Web3</Heading>
+      <Heading as="h3" my={4}>Explore Web3</Heading>
       <ConnectMetamask />
-                
+
       <VStack>
-        <Box  my={4} p={4} w='100%' borderWidth="1px" borderRadius="lg">
-          <Heading my={4}  fontSize='xl'>Task 1</Heading>
+        <Box my={4} p={4} w='100%' borderWidth="1px" borderRadius="lg">
+          <Heading my={4} fontSize='xl'>Task 1</Heading>
           <Text>local chain with hardhat</Text>
         </Box>
 
-        <Box  my={4} p={4} w='100%' borderWidth="1px" borderRadius="lg">
-          <Heading my={4}  fontSize='xl'>Task 2</Heading>
+        <Box my={4} p={4} w='100%' borderWidth="1px" borderRadius="lg">
+          <Heading my={4} fontSize='xl'>Task 2</Heading>
           <Text>DAPP with React/NextJS/Chakra</Text>
         </Box>
 
-        <LinkBox  my={4} p={4} w='100%' borderWidth="1px" borderRadius="lg">
+        <LinkBox my={4} p={4} w='100%' borderWidth="1px" borderRadius="lg">
           <NextLink href="https://github.com/NoahZinsmeister/web3-react/tree/v6" passHref>
-          <LinkOverlay>
-            <Heading my={4} fontSize='xl'>Task 3 with link</Heading>
-            <Text>Read docs of Web3-React V6</Text>
-          </LinkOverlay>
+            <LinkOverlay>
+              <Heading my={4} fontSize='xl'>Task 3 with link</Heading>
+              <Text>Read docs of Web3-React V6</Text>
+            </LinkOverlay>
           </NextLink>
         </LinkBox>
+
+        <Box mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
+          <Heading my={4} fontSize='xl'>ETH Balance</Heading>
+          <ETHBalance />
+        </Box>
+
+        <Box mb={0} p={4} w='100%' borderWidth="1px" borderRadius="lg">
+          <Heading my={4} fontSize='xl'>ETH Balance <b>using SWR</b></Heading>
+          <ETHBalanceSWR />
+        </Box>
+
       </VStack>
     </>
   )
