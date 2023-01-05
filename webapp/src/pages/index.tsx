@@ -4,6 +4,7 @@ import Head from 'next/head'
 import NextLink from "next/link"
 import { VStack, Heading, Box, LinkOverlay, LinkBox} from "@chakra-ui/layout"
 import { Text, Button } from '@chakra-ui/react'
+import ConnectMetamask from 'components/ConnectMetamask'
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +13,9 @@ const Home: NextPage = () => {
         <title>My DAPP</title>
       </Head>
 
-      <Heading as="h3"  my={4}>Explore Web3</Heading>          
+      <Heading as="h3"  my={4}>Explore Web3</Heading>
+      <ConnectMetamask />
+                
       <VStack>
         <Box  my={4} p={4} w='100%' borderWidth="1px" borderRadius="lg">
           <Heading my={4}  fontSize='xl'>Task 1</Heading>
