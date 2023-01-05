@@ -1,3 +1,4 @@
 .history
 local_config.json
 deployed_contracts.json
+.DS_Store
