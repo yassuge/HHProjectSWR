@@ -16,11 +16,10 @@ const ETHBalanceSWR = () => {
     const { data: balance,mutate } = useSWR(['getBalance', account, 'latest'], {
       fetcher: fetcher(library),
     })
-    console.log("ETHBalanceSWR",balance)
 
     useEffect(() => {
       if(!library) return
-
+      
       // listen for changes on an Ethereum address
       console.log(`listening for blocks...`)
       library.on('block', () => {
@@ -31,7 +30,7 @@ const ETHBalanceSWR = () => {
       return () => {
         library.removeAllListeners('block')
       }
-
+      
       // trigger the effect only on component mount
       // ** changed to library prepared
     }, [library])
@@ -50,3 +49,4 @@ const ETHBalanceSWR = () => {
   }
 
 export default ETHBalanceSWR
+  
